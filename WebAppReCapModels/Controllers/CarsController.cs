@@ -16,6 +16,23 @@ namespace WebAppReCapModels.Controllers
         }
 
         [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(CarViewModel car)
+        {
+            if (ModelState.IsValid)
+            {
+                _carService.Create(car.Brand, car.ModelName);
+                return RedirectToAction("Index");
+            }
+            return View(car);
+        }
+
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             Car car = _carService.Find(id);
