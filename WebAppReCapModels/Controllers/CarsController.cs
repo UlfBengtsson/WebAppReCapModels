@@ -80,5 +80,10 @@ namespace WebAppReCapModels.Controllers
         {
             return View(_carService.All());
         }
+
+        public IActionResult PartialCar(int id)
+        {
+            return PartialView("_CarPartial", _carService.Find(id));
+        }
     }
 }
