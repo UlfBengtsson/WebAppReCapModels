@@ -76,6 +76,9 @@ namespace WebAppReCapModels.Controllers
             return View("Index", _carService.All());
         }
 
-
+        public IActionResult CarList()// Will use Partical views in this list
+        {
+            return View(_carService.All());
+        }
     }
 }

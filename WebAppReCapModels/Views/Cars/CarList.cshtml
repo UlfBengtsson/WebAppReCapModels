@@ -1,0 +1,28 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "CarList";
+}
+
+<h1>CarList</h1>
+
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h5>Brand</h5>
+        </div>
+        <div class="col">
+            <h5>Model</h5>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col">
+                <p>@item.Brand</p>
+            </div>
+            <div class="col">
+                <p>@item.ModelName</p>
+            </div>
+        </div>
+    }
+</div>
