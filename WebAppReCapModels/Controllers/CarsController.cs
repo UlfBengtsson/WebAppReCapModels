@@ -9,7 +9,7 @@ namespace WebAppReCapModels.Controllers
 {
     public class CarsController : Controller
     {
-        CarService _carService = new CarService();
+        readonly CarService _carService = new CarService();
         public IActionResult Index()
         {
             return View(_carService.All());
@@ -58,5 +58,24 @@ namespace WebAppReCapModels.Controllers
 
             return View(car);
         }
+
+        [HttpGet]
+        public IActionResult Remove(int id)
+        {
+            bool result = _carService.Remove(id);
+
+            if (result)
+            {
+                ViewBag.msg = "Car has bin removed.";
+            }
+            else
+            {
+                ViewBag.msg = "Unable to remove car.";
+            }
+
+            return View("Index", _carService.All());
+        }
+
+
     }
 }
