@@ -9,7 +9,12 @@ namespace WebAppReCapModels.Controllers
 {
     public class CarsController : Controller
     {
-        readonly CarService _carService = new CarService();
+        ICarService _carService;
+
+        public CarsController(ICarService carService)
+        {
+            _carService = carService;
+        }
         public IActionResult Index()
         {
             return View(_carService.All());

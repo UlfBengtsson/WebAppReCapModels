@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace WebAppReCapModels.Models
 {
-    public interface ICarService
+    public interface ICarRepository
     {
-        Car Create(string brand, string modelName);
-        bool Remove(int id);
+        Car Create(Car car);
+        bool Remove(Car car);
         Car Find(int id);
         List<Car> All();
         bool Update(Car car);
