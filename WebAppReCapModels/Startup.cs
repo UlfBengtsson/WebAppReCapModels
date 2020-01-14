@@ -9,22 +9,30 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAppReCapModels.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAppReCapModels
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICarRepository, MockCarRepository>();// very alike a static
+            services.AddDbContext<ExDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddSingleton<ICarRepository, MockCarRepository>();// very alike a static
+            services.AddScoped<ICarRepository, DatabaseCarRepository>();
+
 
             services.AddScoped<ICarService, CarService>();
 
