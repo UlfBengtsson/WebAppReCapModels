@@ -17,5 +17,8 @@ namespace WebAppReCapModels.Models
         [Required]
         [Display(Name = "Model")]
         public string ModelName { get; set; }
+
+        [Required]
+        public DateTime Year { get; set; }
     }
 }

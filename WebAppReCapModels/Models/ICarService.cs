@@ -7,7 +7,7 @@ namespace WebAppReCapModels.Models
 {
     public interface ICarService
     {
-        Car Create(string brand, string modelName);
+        Car Create(string brand, string modelName, DateTime year);
         bool Remove(int id);
         Car Find(int id);
         List<Car> All();

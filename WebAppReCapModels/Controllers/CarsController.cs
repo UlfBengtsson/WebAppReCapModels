@@ -31,7 +31,7 @@ namespace WebAppReCapModels.Controllers
         {
             if (ModelState.IsValid)
             {
-                _carService.Create(car.Brand, car.ModelName);
+                _carService.Create(car.Brand, car.ModelName, car.Year);
                 return RedirectToAction("Index");
             }
             return View(car);

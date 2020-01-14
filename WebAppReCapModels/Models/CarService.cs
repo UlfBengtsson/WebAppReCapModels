@@ -19,14 +19,17 @@ namespace WebAppReCapModels.Models
             return _carRepo.All();
         }
 
-        public Car Create(string brand, string modelName)
+        public Car Create(string brand, string modelName, DateTime year)
         {
-            if (string.IsNullOrWhiteSpace(brand) || string.IsNullOrWhiteSpace(modelName))
+            if (string.IsNullOrWhiteSpace(brand)
+                || string.IsNullOrWhiteSpace(modelName)
+                || year == null
+                )
             {
                 return null;
             }
 
-            Car car = new Car() { Brand = brand, ModelName = modelName };
+            Car car = new Car() { Brand = brand, ModelName = modelName, Year = year };
 
             return _carRepo.Create(car);
         }
@@ -64,6 +67,7 @@ namespace WebAppReCapModels.Models
 
             currentCar.Brand = car.Brand;
             currentCar.ModelName = car.ModelName;
+            currentCar.Year = car.Year;
 
             _carRepo.Update(currentCar);
 
