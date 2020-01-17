@@ -1,0 +1,22 @@
+﻿@model List<Cake>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table>
+
+    @foreach (var item in Model)
+    {
+        <tr id="@("CakeId" + item.Id)">
+            <td>@item.Name</td>
+            <td>@item.Servings</td>
+            <td>@item.GlutenFree</td>
+            <td>@item.LactoseFree</td>
+            <td>@item.NutsFree</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+    
+</table>

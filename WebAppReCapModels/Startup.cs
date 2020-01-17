@@ -32,8 +32,9 @@ namespace WebAppReCapModels
 
             //services.AddSingleton<ICarRepository, MockCarRepository>();// very alike a static
             services.AddScoped<ICarRepository, DatabaseCarRepository>();
+            services.AddScoped<ICakeRepository, CakeRepository>();
 
-
+            services.AddScoped<ICakeService, CakeService>();
             services.AddScoped<ICarService, CarService>();
 
             services.AddMvc();

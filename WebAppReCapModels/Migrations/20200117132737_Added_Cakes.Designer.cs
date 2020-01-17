@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppReCapModels.Models;
 
 namespace WebAppReCapModels.Migrations
 {
     [DbContext(typeof(ExDbContext))]
-    partial class ExDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200117132737_Added_Cakes")]
+    partial class Added_Cakes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

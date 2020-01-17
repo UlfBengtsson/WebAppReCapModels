@@ -11,5 +11,6 @@ namespace WebAppReCapModels.Models
         public ExDbContext(DbContextOptions<ExDbContext> options) : base(options)
         { }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Cake> Cakes { get; set; }
     }
 }
