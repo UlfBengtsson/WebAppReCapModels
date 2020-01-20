@@ -8,8 +8,8 @@ namespace WebAppReCapModels.Models
 {
     public class CakeViewModel
     {
-        [Required]
-        [StringLength(63, MinimumLength = 1)]
+        [Required(ErrorMessage = "Must have a Name")]
+        [StringLength(63, MinimumLength = 1, ErrorMessage = "Must have a Name that is 1 to 63 letters long")]
         public string Name { get; set; }
 
         [Required]

@@ -1,0 +1,33 @@
+﻿@model CakeViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-action="Create" asp-controller="Cakes" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <label asp-for="Price"></label>
+    <input asp-for="Price" />
+    <span asp-validation-for="Price"></span>
+    <br />
+    <label asp-for="Servings"></label>
+    <input asp-for="Servings" />
+    <span asp-validation-for="Servings"></span>
+    <br />
+    <label asp-for="GlutenFree"></label>
+    <input asp-for="GlutenFree" />
+    <br />
+    <label asp-for="LactoseFree"></label>
+    <input asp-for="LactoseFree" />
+    <br />
+    <label asp-for="NutsFree"></label>
+    <input asp-for="NutsFree" />
+    <br />
+    <input type="submit" value="Create" />
+</form>

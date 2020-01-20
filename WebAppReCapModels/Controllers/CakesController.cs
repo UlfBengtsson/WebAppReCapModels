@@ -20,5 +20,22 @@ namespace WebAppReCapModels.Controllers
         {
             return View(_cakeService.All());
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(CakeViewModel cake)
+        {
+            if (ModelState.IsValid)
+            {
+                _cakeService.Create(cake);
+                return RedirectToAction("Index");
+            }
+
+            return View(cake);
+        }
     }
 }
